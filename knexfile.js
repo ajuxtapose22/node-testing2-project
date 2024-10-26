@@ -4,7 +4,7 @@ module.exports = {
         connection: {
             filename: './data/dev.sqlite3'
         },
-        useNullAsDefault: true, // SQLite spec 
+        useNullAsDefault: true, // SQLite specific 
         migrations: {
             directory: './data/migrations'
         },
@@ -13,7 +13,8 @@ module.exports = {
         },
         pool: {
             afterCreate: (conn, done) => {
-                conn.run('PRAGMA foreign_keys = ON', done)
+                conn.run('PRAGMA foreign_keys = ON', done) // SQlite specific 
+                // enforce referential integrity 
             }
         }
     },

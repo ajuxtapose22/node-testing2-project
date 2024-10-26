@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "test": "cross-env NODE_ENV=testing jest --runInBand",
+    "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
